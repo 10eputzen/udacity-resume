@@ -47,13 +47,15 @@ var education = {
         "location": "Butzbach, Hessen, Germany",
         "degree": "Abitur",
         "major": "-",
-        "dates": 2005,
+        "dates": '1996-2005',
+        "url": "http://www.weidigschule.de"
     }, {
         "name": "University Duisburg-Essen",
         "location": "Duisburg, NRW, Germany",
         "degree": "BA",
         "major": "Computer Engineering",
-        "dates": 2012,
+        "dates": '2006-2012',
+        "url": "http://www.uni-due.de"
     }],
     onlineCourses: [{
         "title": "Udacity Frontend Developer Nanodegree",
@@ -66,7 +68,7 @@ var education = {
         "dates": "2014-10",
         "url": "https://www.integrata.de",
     }],
-    displaySchool: function() {
+    display: function() {
         if (education.schools.length > 0) {
             education.schools.forEach(function(entry) {
                 $("#education").append(HTMLschoolStart);
@@ -75,15 +77,15 @@ var education = {
                 var degree = HTMLschoolDegree.replace("%data%", entry.degree);
                 var majors = HTMLschoolMajor.replace("%data%", entry.major);
                 var dates = HTMLschoolDates.replace("%data%", entry.dates);
+                var url = HTMLschoolURL.replace("%data%", entry.url);
                 $(".education-entry:last").append(name);
                 $(".education-entry:last").append(degree);
                 $(".education-entry:last").append(dates);
                 $(".education-entry:last").append(location);
                 $(".education-entry:last").append(majors);
+                $(".education-entry:last").append(url);       
             });
         }
-    },
-    displayOnline: function() {
         if (education.onlineCourses.length > 0) {
             $(".education-entry:last").append(HTMLonlineClasses);
             education.onlineCourses.forEach(function(entry) {
@@ -168,7 +170,6 @@ var projects = {
 bio.display();
 work.display();
 projects.display();
-education.displaySchool();
-education.displayOnline();
+education.display();
 
 $("#mapDiv").append(googleMap);
