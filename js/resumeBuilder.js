@@ -36,11 +36,11 @@ var bio = {
             bio.skills.forEach(function(entry) {
                 var formattedSkill = HTMLskills.replace("%data%", entry);
                 $("#header").append(formattedSkill);
-            })
-
-        };
+            });
+        }
     }
 };
+
 var education = {
     schools: [{
         "name": "Weidigschule",
@@ -54,7 +54,6 @@ var education = {
         "degree": "BA",
         "major": "Computer Engineering",
         "dates": 2012,
-
     }],
     onlineCourses: [{
         "title": "Udacity Frontend Developer Nanodegree",
@@ -130,7 +129,6 @@ var work = {
             $(".work-entry:last").append(description);
         });
     }
-
 };
 
 var projects = {
@@ -160,9 +158,8 @@ var projects = {
                         var link = HTMLprojectImage.replace("%data%", ímage);
                         $(".project-entry:last").append(link);
                     });
-
                 }
-            })
+            });
         }
     }
 };
