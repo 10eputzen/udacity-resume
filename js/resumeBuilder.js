@@ -9,12 +9,12 @@ var bio = {
     },
     "welcomeMessage": "Servus!",
     "skills": ["Pure Awesomeness", "Table Soccer", "Football", "Computer"],
-    "bioPic": "images/bio.jpg",
+    "biopic": "images/bio.jpg",
     display: function() {
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
         var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-        var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+        var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
         var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
         var formatedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
         var formatedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
@@ -35,7 +35,7 @@ var bio = {
             $("#header").append(HTMLskillsStart);
             bio.skills.forEach(function(entry) {
                 var formattedSkill = HTMLskills.replace("%data%", entry);
-                $("#header").append(formattedSkill);
+                $("#skills").append(formattedSkill);
             });
         }
     }
@@ -46,14 +46,14 @@ var education = {
         "name": "Weidigschule",
         "location": "Butzbach, Hessen, Germany",
         "degree": "Abitur",
-        "major": "-",
+        "majors": "-",
         "dates": '1996-2005',
         "url": "http://www.weidigschule.de"
     }, {
         "name": "University Duisburg-Essen",
         "location": "Duisburg, NRW, Germany",
         "degree": "BA",
-        "major": "Computer Engineering",
+        "majors": "Computer Engineering",
         "dates": '2006-2012',
         "url": "http://www.uni-due.de"
     }],
@@ -75,9 +75,9 @@ var education = {
                 var name = HTMLschoolName.replace("%data%", entry.name);
                 var location = HTMLschoolLocation.replace("%data%", entry.location);
                 var degree = HTMLschoolDegree.replace("%data%", entry.degree);
-                var majors = HTMLschoolMajor.replace("%data%", entry.major);
+                var majors = HTMLschoolMajor.replace("%data%", entry.majors);
                 var dates = HTMLschoolDates.replace("%data%", entry.dates);
-                var url = HTMLschoolURL.replace("%data%", entry.url);
+                var url = HTMLschoolURL.replace("%data%", entry.url).replace("#",entry.url);
                 $(".education-entry:last").append(name);
                 $(".education-entry:last").append(degree);
                 $(".education-entry:last").append(dates);
@@ -92,11 +92,11 @@ var education = {
                 var title = HTMLonlineTitle.replace("%data%", entry.title);
                 var school = HTMLonlineSchool.replace("%data%", entry.school);
                 var dates = HTMLonlineDates.replace("%data%", entry.dates);
-                var url = HTMLonlineURL.replace("%data%", entry.url);
+                var url = HTMLonlineURL.replace("%data%", entry.url).replace("#",entry.url);
                 $(".education-entry:last").append(title);
                 $(".education-entry:last").append(school);
                 $(".education-entry:last").append(dates);
-                $(".education-entry:last").append(url);
+                $(".education-entry:last").append(url)
             });
         }
     }
